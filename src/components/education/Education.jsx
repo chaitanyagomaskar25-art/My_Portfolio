@@ -12,7 +12,7 @@ export default function Education() {
   return (
     <section
       className={`py-12 sm:py-20 px-4 sm:px-6 font-sans relative overflow-x-hidden w-full max-w-full transition-colors duration-500 ${
-        isDarkMode ? 'bg-[#030712] text-slate-100' : 'bg-transparent text-slate-900'
+        isDarkMode ? ' text-slate-100' : 'bg-transparent text-slate-900'
       }`}
       id="education"
     >
