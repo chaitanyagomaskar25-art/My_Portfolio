@@ -68,7 +68,7 @@ const About = () => {
       
 
       {/* Hero Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-6 md:pb-15 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
         <div className="flex flex-col justify-center text-center md:text-left order-2 md:order-1">
           <div ref={badgeRef} className="flex justify-center md:justify-start mb-3 sm:mb-4">
             <span

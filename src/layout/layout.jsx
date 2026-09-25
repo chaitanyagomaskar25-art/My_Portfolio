@@ -18,9 +18,9 @@ const Layout = () => {
       }`}
     >
       <GlowingCursor />
-      <VantaBackground />
-      <ButterflyLayer />
-      <DottedGridCanvas />
+      {/* <VantaBackground /> */}
+      {/* <ButterflyLayer /> */}
+      {/* <DottedGridCanvas /> */}
 
     
       <Navbar />
