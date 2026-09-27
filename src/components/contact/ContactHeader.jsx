@@ -1,26 +1,54 @@
+// src/components/contact/ContactHeader.jsx
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useTheme } from '../../context/ThemeContext';
 
-export const ContactHeader = ({ isDarkMode }) => {
+export const ContactHeader = ({ isDarkMode: isDarkModeProp }) => {
+  const themeContext = useTheme();
+  // Safely fallback to prop if context is unavailable
+  const isDarkMode = themeContext?.isDarkMode ?? isDarkModeProp;
+
   return (
-    <div className="mb-12 text-center">
-      <motion.h2
-        initial={{ opacity: 0, tracking: '-0.05em' }}
-        whileInView={{ opacity: 1, tracking: '0.05em' }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1 }}
-        className={`text-4xl sm:text-6xl md:text-7xl font-black uppercase text-transparent bg-clip-text ${
-          isDarkMode
-            ? 'bg-linear-to-b from-white via-gray-300 to-gray-600'
-            : 'bg-linear-to-b from-gray-900 via-gray-800 to-gray-600'
-        } drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]`}
-      >
-        Get In Touch
-      </motion.h2>
-      <div className="flex justify-center mt-3">
-        <span className="w-3 h-1 bg-cyan-500 rounded-full mr-1 animate-ping" />
-        <div className="h-0.5 w-24 bg-linear-to-r from-transparent via-cyan-500 to-transparent" />
+    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-slate-800/20 dark:border-slate-800/80 gap-6 w-full">
+      <div className="max-w-2xl">
+        {/* Pill Badge Tag */}
+        <div
+          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wider mb-3 border ${
+            isDarkMode
+              ? 'bg-purple-500/10 border-purple-500/20 text-purple-400'
+              : 'bg-purple-50 border-purple-200 text-purple-700'
+          }`}
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse shrink-0" />
+          <span>04—04 // CONTACT</span>
+        </div>
+
+        {/* Heading */}
+        <h2
+          className={`text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight ${
+            isDarkMode ? 'text-white' : 'text-slate-900'
+          }`}
+        >
+          Get In{' '}
+          <span
+            className={`bg-clip-text text-transparent bg-gradient-to-r ${
+              isDarkMode
+                ? 'from-purple-400 via-fuchsia-400 to-pink-400'
+                : 'from-purple-700 via-fuchsia-600 to-pink-600'
+            }`}
+          >
+            Touch
+          </span>
+        </h2>
       </div>
+
+      {/* Subtitle */}
+      <p
+        className={`text-sm sm:text-base max-w-md leading-relaxed ${
+          isDarkMode ? 'text-slate-400' : 'text-slate-600'
+        }`}
+      >
+        Have a project in mind, an engineering opportunity, or just want to connect? Drop a message below or reach out directly.
+      </p>
     </div>
   );
 };

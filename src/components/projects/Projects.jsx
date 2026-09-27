@@ -14,31 +14,34 @@ export default function Projects() {
 
   return (
     <section
-      className={`py-12 sm:py-20 px-4 sm:px-6 font-sans relative overflow-x-clip w-full max-w-full transition-colors duration-500 ${
-        isDarkMode ? ' text-slate-100' : 'bg-transparent text-slate-900'
+      className={`py-16 sm:py-24 px-4 sm:px-6 font-sans relative overflow-hidden w-full transition-colors duration-500 ${
+        isDarkMode ? 'text-slate-100' : 'bg-transparent text-slate-900'
       }`}
       id="projects"
     >
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-800/20 dark:border-slate-800/80 gap-4 w-full">
-          <div className="max-w-full">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-slate-800/20 dark:border-slate-800/80 gap-6 w-full">
+          <div className="max-w-2xl">
             <div
-              className={`flex items-center gap-2 font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-2 ${
-                isDarkMode ? 'text-purple-400' : 'text-purple-600 font-semibold'
+              className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wider mb-3 border ${
+                isDarkMode
+                  ? 'bg-purple-500/10 border-purple-500/20 text-purple-400'
+                  : 'bg-purple-50 border-purple-200 text-purple-700'
               }`}
             >
-              <span className="w-2 h-2 rounded-sm bg-purple-500 animate-pulse shrink-0" />
-              <span className="truncate">Selected Works // 01—03</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse shrink-0" />
+              <span>01—03 // SELECTED WORKS</span>
             </div>
+            
             <h2
-              className={`text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight wrap-break-word ${
+              className={`text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight ${
                 isDarkMode ? 'text-white' : 'text-slate-900'
               }`}
             >
               Featured{' '}
               <span
-                className={`bg-clip-text text-transparent bg-linear-to-r ${
+                className={`bg-clip-text text-transparent bg-gradient-to-r ${
                   isDarkMode
                     ? 'from-purple-400 via-fuchsia-400 to-pink-400'
                     : 'from-purple-700 via-fuchsia-600 to-pink-600'
@@ -48,40 +51,44 @@ export default function Projects() {
               </span>
             </h2>
           </div>
+
           <p
-            className={`text-xs sm:text-sm max-w-md leading-relaxed ${
+            className={`text-sm sm:text-base max-w-md leading-relaxed ${
               isDarkMode ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            A preview of scalable full-stack applications, interactive web apps, and system integrations.
+            A curated showcase of scalable full-stack applications, high-performance web systems, and interactive tools.
           </p>
         </div>
 
-        {/* 1 Column on Mobile, 2 on Tablet, 3 on Desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12 w-full max-w-full">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 w-full">
           {homeProjects.map((project, index) => (
-            <div key={project.id} className="w-full max-w-full overflow-hidden">
-              <ProjectCard project={project} index={index} />
-            </div>
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 
         {/* Redirect / Show More Button */}
-        <div className="flex justify-center border-t border-slate-800/20 dark:border-slate-800/80 pt-8 sm:pt-10 w-full">
-          <Link to="/projects" className="inline-block max-w-full">
+        <div className="flex justify-center border-t border-slate-800/10 dark:border-slate-800/80 pt-10 sm:pt-12 w-full">
+          <Link to="/projects" className="inline-block">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className={`group px-5 sm:px-8 py-3 sm:py-3.5 border font-mono text-[11px] sm:text-xs uppercase tracking-widest font-bold rounded-xl transition-all flex items-center justify-center gap-2 sm:gap-3 cursor-pointer max-w-full ${
+              className={`group px-6 sm:px-8 py-3.5 border font-mono text-xs uppercase tracking-widest font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer relative overflow-hidden ${
                 isDarkMode
-                  ? 'bg-slate-900/90 hover:bg-slate-800 border-slate-700 hover:border-purple-500/50 text-slate-200 shadow-lg'
-                  : 'bg-white hover:bg-purple-50 border-purple-200 hover:border-purple-300 text-purple-900 shadow-md'
+                  ? 'bg-slate-900/90 hover:bg-slate-800 border-slate-700/80 hover:border-purple-500/50 text-slate-200 shadow-xl shadow-purple-500/5'
+                  : 'bg-white hover:bg-purple-50/50 border-purple-200 hover:border-purple-300 text-purple-950 shadow-md'
               }`}
             >
-              <span className="truncate">Show More ({projectsData.length} Total Projects)</span>
-              <span className="text-purple-500 transition-transform duration-300 group-hover:translate-x-1 shrink-0">
-                →
-              </span>
+              <span>Explore All Projects ({projectsData.length})</span>
+              <svg
+                className="w-4 h-4 text-purple-500 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </motion.button>
           </Link>
         </div>

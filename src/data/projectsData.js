@@ -10,7 +10,7 @@ export const projectsData = [
       'A developer-first career hub for software engineers to discover vetted technical roles, track job applications, and engage directly with recruiters.',
     tags: ['React', 'Node.js', 'Tailwind', 'MongoDB'],
     image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
-    liveLink: 'https://your-live-jobdev-url.com',
+    liveLink: 'https://agile-issue-tracker-siwx.vercel.app/',
     githubLink: 'https://github.com/yourusername/JobDev',
   },
   {

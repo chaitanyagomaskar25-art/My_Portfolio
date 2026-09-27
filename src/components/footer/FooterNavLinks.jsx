@@ -1,3 +1,4 @@
+// src/components/footer/FooterNavLinks.jsx
 import React from 'react';
 
 export const FooterNavLinks = ({ navLinks, isDarkMode }) => {
@@ -16,8 +17,8 @@ export const FooterNavLinks = ({ navLinks, isDarkMode }) => {
           onClick={() => handleScroll(link.targetId)}
           className={`transition-colors duration-200 cursor-pointer ${
             isDarkMode 
-              ? 'text-slate-400 hover:text-cyan-400' 
-              : 'text-slate-600 hover:text-cyan-600'
+              ? 'text-slate-400 hover:text-purple-400' 
+              : 'text-slate-600 hover:text-purple-700'
           }`}
         >
           // {link.label}

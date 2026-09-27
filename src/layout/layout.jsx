@@ -5,9 +5,8 @@ import Navbar from './Navbar';
 import Footer from '../components/footer/Footer';
 import { useTheme } from '../context/ThemeContext';
 import { GlowingCursor } from "../components/background/GlowingCursor";
-import { VantaBackground } from "../components/background/VantaBackground";
-import { DottedGridCanvas } from "../components/background/DottedGridCanvas";
-import { ButterflyLayer } from "../components/background/ButterFlyLayer";
+
+
 const Layout = () => {
   const { isDarkMode } = useTheme();
 
@@ -18,11 +17,7 @@ const Layout = () => {
       }`}
     >
       <GlowingCursor />
-      {/* <VantaBackground /> */}
-      {/* <ButterflyLayer /> */}
-      {/* <DottedGridCanvas /> */}
-
-    
+   
       <Navbar />
 
       {/* Main Container - Offsets fixed navbar & forces strict width */}

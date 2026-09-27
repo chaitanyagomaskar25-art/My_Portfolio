@@ -1,10 +1,11 @@
+// src/components/footer/FooterHeading.jsx
 import React from 'react';
 
 export const FooterHeading = ({ isDarkMode, title, subtitle }) => {
   return (
-    <div className="flex flex-col items-center text-center mb-10">
-      <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-500 mb-2">
-        <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+    <div className="flex flex-col items-center text-center mb-8">
+      <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-purple-400 mb-2">
+        <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
         <span>System Terminal // End of Page</span>
       </div>
       

@@ -1,3 +1,4 @@
+// src/components/contact/Contact.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
@@ -19,85 +20,105 @@ export default function Contact() {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut', staggerChildren: 0.1 },
+      transition: { duration: 0.5, ease: 'easeOut', staggerChildren: 0.08 },
     },
   };
 
   return (
     <section
-      className={`min-h-screen py-16 px-4 sm:px-6 flex items-center justify-center font-sans select-none overflow-hidden w-full transition-colors duration-500 ${
-        isDarkMode ? 'bg-[#070a13] text-gray-100' : 'bg-slate-50 text-gray-900'
+      className={`py-16 sm:py-24 px-4 sm:px-6 font-sans relative overflow-hidden w-full transition-colors duration-500 ${
+        isDarkMode ? 'text-slate-100' : 'bg-transparent text-slate-900'
       }`}
       id="contact"
     >
-      <div className="max-w-7xl mx-auto w-full flex flex-col justify-center">
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
         <ContactHeader isDarkMode={isDarkMode} />
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }}
-          className="lg:max-w-[70%] xl:max-w-[60%] mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch w-full"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 items-stretch w-full"
         >
           {/* Left Side: Contact Information Cards */}
-          <div className="md:col-span-2 flex flex-col gap-4 justify-between">
+          <div className="lg:col-span-2 flex flex-col gap-4 justify-between">
             {/* Resume */}
-            <ContactInfoCard title="📄 Technical Profile" isDarkMode={isDarkMode}>
+            <ContactInfoCard title="Technical Resume" isDarkMode={isDarkMode}>
               <a
                 href={contactInfo.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-cyan-500 hover:text-cyan-400 transition-colors inline-flex items-center gap-1.5"
+                className={`text-xs font-mono font-semibold transition-colors inline-flex items-center gap-1.5 ${
+                  isDarkMode
+                    ? 'text-purple-400 hover:text-purple-300'
+                    : 'text-purple-600 hover:text-purple-700'
+                }`}
               >
-                Download Resume <span className="text-xs">↗</span>
+                <span>Download Resume</span>
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             </ContactInfoCard>
 
             {/* Email */}
-            <ContactInfoCard title="📧 Direct Email" isDarkMode={isDarkMode}>
+            <ContactInfoCard title="Direct Email" isDarkMode={isDarkMode}>
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="text-xs font-mono text-cyan-500 hover:text-cyan-400 transition-colors truncate block"
+                className={`text-xs font-mono font-medium transition-colors truncate block ${
+                  isDarkMode
+                    ? 'text-purple-400 hover:text-purple-300'
+                    : 'text-purple-600 hover:text-purple-700'
+                }`}
               >
                 {contactInfo.email}
               </a>
             </ContactInfoCard>
 
             {/* Phone */}
-            <ContactInfoCard title="📞 Direct Line" isDarkMode={isDarkMode}>
+            <ContactInfoCard title="Direct Line" isDarkMode={isDarkMode}>
               <a
                 href={`tel:${contactInfo.phoneRaw}`}
-                className="text-xs font-mono text-cyan-500 hover:text-cyan-400 transition-colors block"
+                className={`text-xs font-mono font-medium transition-colors block ${
+                  isDarkMode
+                    ? 'text-purple-400 hover:text-purple-300'
+                    : 'text-purple-600 hover:text-purple-700'
+                }`}
               >
                 {contactInfo.phone}
               </a>
             </ContactInfoCard>
 
             {/* Social Spaces */}
-            <ContactInfoCard title="🌐 Social Coordinates" isDarkMode={isDarkMode}>
-              <div className="flex flex-col gap-1.5 font-mono text-xs tracking-wider">
+            <ContactInfoCard title="Social Coordinates" isDarkMode={isDarkMode}>
+              <div className="flex flex-col gap-2 font-mono text-xs">
                 {contactInfo.socials.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noreferrer"
-                    className={`text-gray-400 ${social.hoverClass} transition-colors flex items-center gap-2`}
+                    className={`transition-colors flex items-center gap-2 ${
+                      isDarkMode
+                        ? 'text-slate-400 hover:text-purple-400'
+                        : 'text-slate-600 hover:text-purple-600'
+                    }`}
                   >
-                    <span>{social.icon}</span> {social.name}
+                    <span className="text-purple-500">{social.icon}</span>
+                    <span>{social.name}</span>
                   </a>
                 ))}
               </div>
             </ContactInfoCard>
           </div>
 
-          {/* Right Side: Contact Interactive Form */}
-          <div className="md:col-span-3">
+          {/* Right Side: Interactive Contact Form */}
+          <div className="lg:col-span-3">
             <ContactForm
               formData={formData}
               setFormData={setFormData}

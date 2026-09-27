@@ -30,7 +30,7 @@ const About = () => {
   return (
     <div
       ref={containerRef}
-      className={`min-h-screen pt-20 w-full font-sans overflow-x-hidden relative transition-colors duration-500 sm:cursor-none select-none ${
+      className={`w-full pb-20 font-sans overflow-x-hidden relative transition-colors duration-500 sm:cursor-none select-none ${
         isDarkMode
           ? ' text-white'
           : 'bg-linear-to-b from-slate-50 via-purple-50/20 to-pink-50/20 text-slate-900'
@@ -65,23 +65,10 @@ const About = () => {
         }
       `}</style>
 
-      
-
       {/* Hero Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-6 md:pb-15 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 md:pt-24 pb-0 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
         <div className="flex flex-col justify-center text-center md:text-left order-2 md:order-1">
-          <div ref={badgeRef} className="flex justify-center md:justify-start mb-3 sm:mb-4">
-            <span
-              className={`inline-flex items-center gap-2 text-[11px] sm:text-xs font-mono font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] px-3.5 py-1.5 rounded-lg border backdrop-blur-md transition-colors duration-500 ${
-                isDarkMode
-                  ? 'bg-purple-950/50 border-purple-500/30 text-purple-300'
-                  : 'bg-purple-100/70 border-purple-200 text-purple-800'
-              }`}
-            >
-              <Terminal size={13} /> Welcome to my space
-            </span>
-          </div>
-
+         
           <h1
             ref={titleRef}
             className={`text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-4 sm:mb-6 leading-[1.15] transition-colors duration-500 ${
@@ -198,4 +185,4 @@ const About = () => {
   );
 };
 
-export default About 
+export default About;
